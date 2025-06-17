@@ -41,7 +41,25 @@ app.get('/search', (req, res) =>{
 
 
 //REST API
+
+let users = [
+    {id:1, name:'John', age:25},
+    {id:2, name:'Jane', age:30},
+    {id:3, name:'Bob', age:35},
+    {id:4, name:'Alice', age:40}
+    
+]
+
 //CRUD operations
+
+//Create
+app.post('/users', (req, res)=>{
+    const newUser= {id: users.length + 1, name: req.body.name};
+
+    users.push(newUser);
+    res.status(201).json(newUser);
+
+})
 
 
 
