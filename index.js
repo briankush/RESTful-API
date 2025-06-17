@@ -66,6 +66,25 @@ app.get('/users', (req, res)=>{
     res.json(users);
 });
 
+//read one
+app.get('/users/:id', (req, res)=>{
+    const user = users.find(u => u.id == req.params.id);
+    res.json(user);
+});
+
+// update
+app.put('/user/:id', (req, res)=>{
+    const user = users.find(u => u.id == req.params.id);
+    user.name = req.body.name;
+    res.json(user);
+});
+
+//delete
+app.delete('/users/:id', (req, res) =>{
+    users= users.filter(u => u.id !=/*u.id ===Number() */ req.params.id);
+    res.status(204).send();
+});
+
 
 
 app.listen(PORT, () =>{
