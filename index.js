@@ -61,6 +61,10 @@ app.post('/users', (req, res)=>{
 
 })
 
+//Read
+app.get('/users', (req, res)=>{
+    res.json(users);
+});
 
 
 
